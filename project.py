@@ -12,15 +12,19 @@ import requests
 # collection = response.json()
 # print(collection['objectID'])
 
-response = requests.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/437133")
-print(response.status_code)
-collection = response.json()
-# print(collection['title'])
-# print(collection['artistDisplayName'])
-# print(collection['acessionYear'])
+# response = requests.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/437133")
+# print(response.status_code)
+# collection = response.json()
 
-title = collection['title']
-artistDisplayName = collection['artistDisplayName']
-accessionYear = collection['accessionYear']
+# title = collection['title']
+# artistDisplayName = collection['artistDisplayName']
+# accessionYear = collection['accessionYear']
 
-print("The accession year for " + artistDisplayName + "'s \"" + title + "\" is " + accessionYear + ".")
+# print("The accession year for " + artistDisplayName + "'s \"" + title + "\" is " + accessionYear + ".")
+
+count = 1
+while count < 20:
+    response = requests.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + str(count))
+    object = response.json()
+    print("Title: " + object['title'])
+    count += 1;
