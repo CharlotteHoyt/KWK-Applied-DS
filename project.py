@@ -22,9 +22,20 @@ import requests
 
 # print("The accession year for " + artistDisplayName + "'s \"" + title + "\" is " + accessionYear + ".")
 
-count = 1
+""" count = 1
 while count < 20:
     response = requests.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + str(count))
     object = response.json()
     print("Title: " + object['title'])
-    count += 1;
+    count += 1; """
+
+api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+
+try: 
+    response = requests.get(api_url)
+    response.raise_for_status()
+    data = response.json()
+    print("Successfully retrieved data!")
+    print(data)
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching data: {e}")
