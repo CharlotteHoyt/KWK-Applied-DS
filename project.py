@@ -30,13 +30,24 @@ while count < 20:
     print("Title: " + object['title'])
     count += 1; """
 
+# api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+
+# try: 
+#     response = requests.get(api_url)
+#     response.raise_for_status()
+#     data = response.json()
+#     print("Successfully retrieved data!")
+#     print(data)
+# except requests.exceptions.RequestException as e:
+#     print(f"Error fetching data: {e}")
+
 api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
 
-try: 
-    response = requests.get(api_url)
-    response.raise_for_status()
+response = requests.get(api_url)
+
+if response.status_code == 200:
     data = response.json()
-    print("Successfully retrieved data!")
-    print(data)
-except requests.exceptions.RequestException as e:
-    print(f"Error fetching data: {e}")
+    df = pd.DataFrame(data)
+    print(df.head())
+else:
+    print(f"Failed to fetch data: {response.status_code}")
