@@ -41,7 +41,7 @@ while count < 20:
 # except requests.exceptions.RequestException as e:
 #     print(f"Error fetching data: {e}")
 
-api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+""" api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
 
 response = requests.get(api_url)
 
@@ -49,6 +49,34 @@ if response.status_code == 200:
     data = response.json()
     df = pd.DataFrame(data)
     df.to_csv('met_collection_data.csv')
+    print(df.head())
+else:
+    print(f"Failed to fetch data: {response.status_code}") """
+
+
+""" api_url = "https://api.artic.edu/api/v1/artworks?limit=100"
+
+response = requests.get(api_url)
+
+if response.status_code == 200:
+    data = response.json()
+    # df = pd.DataFrame(data)
+    df = pd.json_normalize(data)
+    df.to_csv('aic_collection_data.csv')
+    print(df.head())
+else:
+    print(f"Failed to fetch data: {response.status_code}") """
+
+
+api_url = "https://openaccess-api.clevelandart.org/api/artworks/?female_artists&created_after=2000&limit=1000"
+
+response = requests.get(api_url)
+
+if response.status_code == 200:
+    data = response.json()
+    # df = pd.DataFrame(data)
+    df = pd.json_normalize(data)
+    df.to_csv('cma_collection_data.csv')
     print(df.head())
 else:
     print(f"Failed to fetch data: {response.status_code}")
