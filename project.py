@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-api_url = "https://openaccess-api.clevelandart.org/api/artworks/?female_artists&created_after=2000&limit=1000"
+api_url = "https://openaccess-api.clevelandart.org/api/artworks/?female_artists&created_after=1999&limit=1000"
 
 response = requests.get(api_url)
 
