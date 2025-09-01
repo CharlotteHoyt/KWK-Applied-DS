@@ -13,3 +13,15 @@ if response.status_code == 200:
     print(df.head())
 else:
     print(f"Failed to fetch data: {response.status_code}")
+
+# Collection Script
+""" csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
+
+response = requests.get(csv_url)
+
+if response.status_code == 200:
+    with open("full_cma_collection_data.csv", "wb") as f:
+        f.write(response.content)
+    print("CSV successfully written.")
+else:
+    print(f"Failed to write CSV. Status code: {response.status_code}") """
