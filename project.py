@@ -28,25 +28,7 @@ if response.status_code == 200:
 else:
     print(f"Failed to write CSV. Status code: {response.status_code}") """
 
-# Attempting to drop columns after writing filtered dataset to CSV.
-""" api_url = "https://openaccess-api.clevelandart.org/api/artworks/?female_artists&created_after=1999&limit=1000"
-
-response = requests.get(api_url)
-
-if response.status_code == 200:
-    data = response.json()
-    # df = pd.DataFrame(data)
-    df = pd.json_normalize(data)
-    df.to_csv('cma_collection_data.csv')
-    print(df.head())
-else:
-    print(f"Failed to fetch data: {response.status_code}")
-
-df_modified = df.drop(['id', 'accession_number', 'share_license_status', 'tombstone', 'current_location', 'title', 'creation_date', 'creation_date_earliest', 'creation_date_latest', 'culture', 'technique', 'support_materials', 'department', 'collection', 'type', 'measurements', 'dimensions', 'state_of_the_work', 'edition_of_the_work', 'copyright', 'inscriptions', 'exhibitions', 'description'], axis = 1)
-df_modified.to_csv('cma_collection_data_dropped_columns.csv')
-print("Modified DataFrame in place, dropped columns.") """
-
-# Trying to convert full CMA dataset CSV to DataFrame.
+# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delet files."
 csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
 
 response = requests.get(csv_url)
