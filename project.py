@@ -14,7 +14,7 @@ if response.status_code == 200:
 else:
     print(f"Failed to write CSV. Status code: {response.status_code}") """
 
-# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delet files."
+# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delete files."
 csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
 
 response = requests.get(csv_url)
@@ -34,7 +34,7 @@ df.to_csv('full_cma_collection_data_as_dataframe.csv')
 # Get the title and artists_tags fields. (Requires backspace on CSV line 13001 for data cleaning.)
 df_modified = df.drop(['id', 'accession_number' ,'share_license_status','tombstone', 'current_location', 'title_in_original_language', 'series', 'series_in_original_language','creation_date','creation_date_earliest', 'creation_date_latest', 'culture', 'technique', 'support_materials', 'department', 'collection', 'type', 'measurements', 'state_of_the_work', 'edition_of_the_work', 'copyright', 'inscriptions', 'exhibitions', 'provenance', 'find_spot', 'related_works', 'former_accession_numbers', 'did_you_know', 'description', 'external_resources', 'citations', 'catalogue_raisonne', 'url', 'alternate_images', 'creditline', 'sketchfab_id','sketchfab_url', 'gallery_donor_text', 'creators', 'image_web', 'image_print', 'image_full', 'updated_at'], axis = 1)
 
-df_modified.to_csv('cma_collection_data_dropped_columns.csv')
+df_modified.to_csv('cma_collection_data_dropped_columns.csv', index="False")
 print("Modified DataFrame in place, dropped columns.")
 
 # Delete CSV files not in use.
