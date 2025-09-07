@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+total_art_pieces = 68076
+
 male_artist_count = 0
 female_artist_count = 0
 gender_unknown_artist_count = 0
@@ -50,7 +52,8 @@ print(f"Latine and Hispanic artist count: {latine_and_hispanic_artist_count}")
 print(f"LGBTQ+ artist count: {lgbtq_artist_count}")
 print(f"Black American artist count: {black_american_artist_count}")
 
-tag_names = ["Male",
+# Bar chart displaying info for all artist identities.
+""" tag_names = ["Male",
              "Female",
              "Gender Unkown",
              "Asian",
@@ -74,4 +77,70 @@ plt.bar(tag_names, tag_counts)
 plt.xlabel("Identity")
 plt.ylabel("Artist Count")
 plt.title("Artist Identity vs. Number of Artists")
+plt.show() """
+
+# Bar chart displaying info for artist genders.
+gender_tag_names = ["Male",
+                    "Female",
+                    "Gender Unkown"]
+
+gender_tag_counts = [male_artist_count,
+                     female_artist_count,
+                     gender_unknown_artist_count]
+
+plt.bar(gender_tag_names, gender_tag_counts)
+plt.xlabel("Gender")
+plt.ylabel("Artist Count")
+plt.title("Artist Gender vs. Number of Artists")
 plt.show()
+
+# Bar chart displaying info for artist ethnicity.
+""" ethnicity_tag_names = ["Asian",
+                       "Asian American",
+                       "Latine and Hispanic",
+                       "Black American",
+                       "Other"]
+
+other_ethnicity_count = total_art_pieces - asian_artist_count - asian_american_artist_count - latine_and_hispanic_artist_count - black_american_artist_count
+
+ethnicity_tag_counts = [asian_artist_count,
+                        asian_american_artist_count,
+                        latine_and_hispanic_artist_count,
+                        black_american_artist_count,
+                        other_ethnicity_count]
+
+plt.bar(ethnicity_tag_names, ethnicity_tag_counts)
+plt.xlabel("Ethnicity")
+plt.ylabel("Artist Count")
+plt.title("Artist Ethnicity vs. Number of Artists")
+plt.show() """
+
+# Bar chart displaying info for LGBTQ+ artists.
+""" lgbtq_tag_names = ["LGBTQ+ (After 1900)",
+                   "Not LGBTQ+"]
+
+not_lgbtq_count = total_art_pieces - lgbtq_artist_count
+
+lgbtq_tag_counts = [lgbtq_artist_count,
+                    not_lgbtq_count]
+
+plt.bar(lgbtq_tag_names, lgbtq_tag_counts)
+plt.xlabel("LGBTQ+")
+plt.ylabel("Artist Count")
+plt.title("LQBTQ+ Artists vs. Number of Artists")
+plt.show() """
+
+# Bar chart displaying info for Jewish artists.
+""" jewish_tag_names = ["Jewish",
+                   "Not Jewish"]
+
+not_jewish_count = total_art_pieces - jewish_artist_count
+
+jewish_tag_counts = [jewish_artist_count,
+                    not_jewish_count]
+
+plt.bar(jewish_tag_names, jewish_tag_counts)
+plt.xlabel("Jewish")
+plt.ylabel("Artist Count")
+plt.title("Jewish Artists vs. Number of Artists")
+plt.show() """
