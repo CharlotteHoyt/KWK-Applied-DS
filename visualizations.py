@@ -48,4 +48,30 @@ print(f"Asian American artist count: {asian_american_artist_count}")
 print(f"Jewish artist count: {jewish_artist_count}")
 print(f"Latine and Hispanic artist count: {latine_and_hispanic_artist_count}")
 print(f"LGBTQ+ artist count: {lgbtq_artist_count}")
-print(f"Black Americna artist count: {black_american_artist_count}")
+print(f"Black American artist count: {black_american_artist_count}")
+
+tag_names = ["Male",
+             "Female",
+             "Gender Unkown",
+             "Asian",
+             "Asian American",
+             "Jewish",
+             "Latine and Hispanic",
+             "LGBTQ+",
+             "Black American"]
+
+tag_counts = [male_artist_count,
+              female_artist_count,
+              gender_unknown_artist_count,
+              asian_artist_count,
+              asian_american_artist_count,
+              jewish_artist_count,
+              latine_and_hispanic_artist_count,
+              lgbtq_artist_count,
+              black_american_artist_count]
+
+plt.bar(tag_names, tag_counts)
+plt.xlabel("Identity")
+plt.ylabel("Artist Count")
+plt.title("Artist Identity vs. Number of Artists")
+plt.show()
