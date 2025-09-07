@@ -88,10 +88,13 @@ gender_tag_counts = [male_artist_count,
                      female_artist_count,
                      gender_unknown_artist_count]
 
-plt.bar(gender_tag_names, gender_tag_counts)
-plt.xlabel("Gender")
-plt.ylabel("Artist Count")
-plt.title("Artist Gender vs. Number of Artists")
+plt.bar(gender_tag_names, gender_tag_counts, color= "orange", edgecolor = "black")
+plt.xlabel("Gender", labelpad = 20, fontsize = 14)
+plt.xticks(fontsize = 10)
+plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
+plt.yticks(fontsize = 10)
+plt.title("Artist Gender vs. Number of Artists", fontsize = 14)
+plt.tight_layout()
 plt.show()
 
 # Bar chart displaying info for artist ethnicity.
