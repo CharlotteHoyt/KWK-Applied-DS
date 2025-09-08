@@ -89,6 +89,12 @@ gender_tag_counts = [male_artist_count,
                      gender_unknown_artist_count]
 
 with plt.style.context('Solarize_Light2'):
+    plt.pie(gender_tag_counts, labels = gender_tag_names)
+    plt.axis('equal')
+    plt.title("Artist Gender vs. Number of Artists", fontsize = 14)
+    plt.show()
+
+""" with plt.style.context('Solarize_Light2'):
     plt.bar(gender_tag_names, gender_tag_counts)
     plt.xlabel("Gender", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
@@ -96,7 +102,7 @@ with plt.style.context('Solarize_Light2'):
     plt.yticks(fontsize = 10)
     plt.title("Artist Gender vs. Number of Artists", fontsize = 14)
     plt.tight_layout()
-    plt.show()
+    plt.show() """
 
 # Bar chart displaying info for artist ethnicity.
 ethnicity_tag_names = ["Asian",
@@ -133,6 +139,12 @@ lgbtq_tag_counts = [lgbtq_artist_count,
                     not_lgbtq_count]
 
 with plt.style.context('Solarize_Light2'):
+    plt.pie(lgbtq_tag_counts, labels = lgbtq_tag_names)
+    plt.axis('equal')
+    plt.title("LGBTQ+ Artists vs. Number of Artists", fontsize = 14)
+    plt.show()
+
+""" with plt.style.context('Solarize_Light2'):
     plt.bar(lgbtq_tag_names, lgbtq_tag_counts)
     plt.xlabel("LGBTQ+", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
@@ -140,7 +152,7 @@ with plt.style.context('Solarize_Light2'):
     plt.yticks(fontsize = 10)
     plt.title("LQBTQ+ Artists vs. Number of Artists", fontsize = 14)
     plt.tight_layout()
-    plt.show()
+    plt.show() """
 
 # Bar chart displaying info for Jewish artists.
 jewish_tag_names = ["Jewish",
