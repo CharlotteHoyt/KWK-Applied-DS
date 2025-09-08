@@ -1,5 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import colorama 
+from colorama import Fore
+
+colorama.init(autoreset = True)
 
 total_art_pieces = 68076
 
@@ -42,7 +46,7 @@ while row < 68075:
 
     row = row + 1
 
-print(f"Male artist count: {male_artist_count}")
+""" print(f"Male artist count: {male_artist_count}")
 print(f"Female artist count: {female_artist_count}")
 print(f"Gender unknown artist count: {gender_unknown_artist_count}")
 print(f"Asian artist count: {asian_artist_count}")
@@ -50,7 +54,17 @@ print(f"Asian American artist count: {asian_american_artist_count}")
 print(f"Jewish artist count: {jewish_artist_count}")
 print(f"Latine and Hispanic artist count: {latine_and_hispanic_artist_count}")
 print(f"LGBTQ+ artist count: {lgbtq_artist_count}")
-print(f"Black American artist count: {black_american_artist_count}")
+print(f"Black American artist count: {black_american_artist_count}") """
+
+print(Fore.BLACK + "Male artist count: " + Fore.BLUE + f"{male_artist_count}")
+print(Fore.BLACK + "Female artist count: " + Fore.BLUE + f"{female_artist_count}")
+print(Fore.BLACK + "Gender unknown artist count: " + Fore.BLUE + f"{gender_unknown_artist_count}")
+print(Fore.BLACK + "Asian artist count: " + Fore.BLUE + f"{asian_artist_count}")
+print(Fore.BLACK + "Asian American artist count: " + Fore.BLUE +f"{asian_american_artist_count}")
+print(Fore.BLACK + "Jewish artist count: " + Fore.BLUE + f"{jewish_artist_count}")
+print(Fore.BLACK + "Latine and Hispanic artist count: " + Fore.BLUE + f"{latine_and_hispanic_artist_count}")
+print(Fore.BLACK + "LGBTQ+ artist count: " + Fore.BLUE+ f"{lgbtq_artist_count}")
+print(Fore.BLACK + "Black American artist count: " + Fore.BLUE + f"{black_american_artist_count}")
 
 # Bar chart displaying info for all artist identities.
 """ tag_names = ["Male",
