@@ -14,7 +14,7 @@ if response.status_code == 200:
 else:
     print(f"Failed to write CSV. Status code: {response.status_code}") """
 
-# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delete files."
+# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delete files.
 csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
 
 response = requests.get(csv_url)
