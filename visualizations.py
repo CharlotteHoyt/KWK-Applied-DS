@@ -99,7 +99,7 @@ with plt.style.context('Solarize_Light2'):
     plt.show()
 
 # Bar chart displaying info for artist ethnicity.
-""" ethnicity_tag_names = ["Asian",
+ethnicity_tag_names = ["Asian",
                        "Asian American",
                        "Latine and Hispanic",
                        "Black American",
@@ -113,14 +113,18 @@ ethnicity_tag_counts = [asian_artist_count,
                         black_american_artist_count,
                         other_ethnicity_count]
 
-plt.bar(ethnicity_tag_names, ethnicity_tag_counts)
-plt.xlabel("Ethnicity")
-plt.ylabel("Artist Count")
-plt.title("Artist Ethnicity vs. Number of Artists")
-plt.show() """
+with plt.style.context('Solarize_Light2'):
+    plt.bar(ethnicity_tag_names, ethnicity_tag_counts)
+    plt.xlabel("Ethnicity", labelpad = 20, fontsize = 14)
+    plt.xticks(fontsize = 10)
+    plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
+    plt.yticks(fontsize = 10)
+    plt.title("Artist Ethnicity vs. Number of Artists", fontsize = 14)
+    plt.tight_layout()
+    plt.show()
 
 # Bar chart displaying info for LGBTQ+ artists.
-""" lgbtq_tag_names = ["LGBTQ+ (After 1900)",
+lgbtq_tag_names = ["LGBTQ+ (After 1900)",
                    "Not LGBTQ+"]
 
 not_lgbtq_count = total_art_pieces - lgbtq_artist_count
@@ -128,14 +132,18 @@ not_lgbtq_count = total_art_pieces - lgbtq_artist_count
 lgbtq_tag_counts = [lgbtq_artist_count,
                     not_lgbtq_count]
 
-plt.bar(lgbtq_tag_names, lgbtq_tag_counts)
-plt.xlabel("LGBTQ+")
-plt.ylabel("Artist Count")
-plt.title("LQBTQ+ Artists vs. Number of Artists")
-plt.show() """
+with plt.style.context('Solarize_Light2'):
+    plt.bar(lgbtq_tag_names, lgbtq_tag_counts)
+    plt.xlabel("LGBTQ+", labelpad = 20, fontsize = 14)
+    plt.xticks(fontsize = 10)
+    plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
+    plt.yticks(fontsize = 10)
+    plt.title("LQBTQ+ Artists vs. Number of Artists", fontsize = 14)
+    plt.tight_layout()
+    plt.show()
 
 # Bar chart displaying info for Jewish artists.
-""" jewish_tag_names = ["Jewish",
+jewish_tag_names = ["Jewish",
                    "Not Jewish"]
 
 not_jewish_count = total_art_pieces - jewish_artist_count
@@ -143,8 +151,12 @@ not_jewish_count = total_art_pieces - jewish_artist_count
 jewish_tag_counts = [jewish_artist_count,
                     not_jewish_count]
 
-plt.bar(jewish_tag_names, jewish_tag_counts)
-plt.xlabel("Jewish")
-plt.ylabel("Artist Count")
-plt.title("Jewish Artists vs. Number of Artists")
-plt.show() """
+with plt.style.context('Solarize_Light2'):
+    plt.bar(jewish_tag_names, jewish_tag_counts)
+    plt.xlabel("Jewish", labelpad = 20, fontsize = 14)
+    plt.xticks(fontsize = 10)
+    plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
+    plt.yticks(fontsize = 10)
+    plt.title("Jewish Artists vs. Number of Artists", fontsize = 14)
+    plt.tight_layout()
+    plt.show()
