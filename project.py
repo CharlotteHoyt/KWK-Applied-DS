@@ -17,16 +17,16 @@ else:
     print(f"Failed to write CSV. Status code: {response.status_code}")
 
 # Convert CSV to a DataFrame. 
-df = pd.read_csv('full_cma_collection_data.csv')
+df = pd.read_csv("full_cma_collection_data.csv")
 
 # Write DataFrame to a CSV.
-df.to_csv('full_cma_collection_data_as_dataframe.csv')
+df.to_csv("full_cma_collection_data_as_dataframe.csv")
 
 # Modify DataFrame by dropping all columns but the title and artists_tags fields.
 df_modified = df.drop(['id', 'accession_number' ,'share_license_status','tombstone', 'current_location', 'title_in_original_language', 'series', 'series_in_original_language','creation_date','creation_date_earliest', 'creation_date_latest', 'culture', 'technique', 'support_materials', 'department', 'collection', 'type', 'measurements', 'state_of_the_work', 'edition_of_the_work', 'copyright', 'inscriptions', 'exhibitions', 'provenance', 'find_spot', 'related_works', 'former_accession_numbers', 'did_you_know', 'description', 'external_resources', 'citations', 'catalogue_raisonne', 'url', 'alternate_images', 'creditline', 'sketchfab_id','sketchfab_url', 'gallery_donor_text', 'creators', 'image_web', 'image_print', 'image_full', 'updated_at'], axis = 1)
 
 # Write modified DataFrame to CSV, supress display of DataFrame's index.
-df_modified.to_csv('cma_collection_data_dropped_columns.csv', index="False")
+df_modified.to_csv("cma_collection_data_dropped_columns.csv", index= "False")
 
 # Use the os module to delete helper CSV files.
 file_to_delete_1 = "full_cma_collection_data.csv"

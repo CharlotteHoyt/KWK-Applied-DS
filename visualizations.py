@@ -20,13 +20,13 @@ lgbtq_artist_count = 0
 black_american_artist_count = 0
 
 # Read cleaned CMA CSV to a DataFrame for use.
-df = pd.read_csv('cma_collection_data_cleaned.csv')
+df = pd.read_csv("cma_collection_data_cleaned.csv")
 
 # Traverse DataFrame and tally instance of each artists_tags. 
 row = 0
 while row < 68075:
     # Access artists_tags to save to an array.
-    artist_tag_array = df.loc[row, 'artists_tags']
+    artist_tag_array = df.loc[row, "artists_tags"]
     # Split artists_tags array to obtain each tag.
     separated_array = artist_tag_array.split(",")
 
@@ -72,9 +72,9 @@ gender_tag_counts = [male_artist_count,
                      female_artist_count,
                      gender_unknown_artist_count]
 
-with plt.style.context('Solarize_Light2'):
+with plt.style.context("Solarize_Light2"):
     plt.pie(gender_tag_counts, labels = gender_tag_names, autopct = "%1.1f%%")
-    plt.axis('equal')
+    plt.axis("equal")
     plt.title("Pieces in the Cleveland Museum of Art's Collection by Artist Gender", fontsize = 14)
     plt.show()
 
@@ -93,7 +93,7 @@ ethnicity_tag_counts = [asian_artist_count,
                         black_american_artist_count,
                         other_ethnicity_count]
 
-with plt.style.context('Solarize_Light2'):
+with plt.style.context("Solarize_Light2"):
     plt.bar(ethnicity_tag_names, ethnicity_tag_counts)
     plt.xlabel("Ethnicity", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
@@ -112,9 +112,9 @@ not_lgbtq_count = total_art_pieces - lgbtq_artist_count
 lgbtq_tag_counts = [lgbtq_artist_count,
                     not_lgbtq_count]
 
-with plt.style.context('Solarize_Light2'):
+with plt.style.context("Solarize_Light2"):
     plt.pie(lgbtq_tag_counts, labels = lgbtq_tag_names, autopct = "%1.1f%%")
-    plt.axis('equal')
+    plt.axis("equal")
     plt.title("Pieces in the Cleveland Museum of Art's Collection by LGBTQ+ Artists", fontsize = 14)
     plt.show()
 
@@ -127,7 +127,7 @@ not_jewish_count = total_art_pieces - jewish_artist_count
 jewish_tag_counts = [jewish_artist_count,
                     not_jewish_count]
 
-with plt.style.context('Solarize_Light2'):
+with plt.style.context("Solarize_Light2"):
     plt.bar(jewish_tag_names, jewish_tag_counts)
     plt.xlabel("Jewish", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
