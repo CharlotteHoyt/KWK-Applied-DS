@@ -53,15 +53,15 @@ while row < 68075:
     row += 1
 
 # Print artist_tags totals to the terminal.
-print(Fore.BLACK + "Male artist count: " + Fore.BLUE + f"{male_artist_count}")
-print(Fore.BLACK + "Female artist count: " + Fore.BLUE + f"{female_artist_count}")
-print(Fore.BLACK + "Gender unknown artist count: " + Fore.BLUE + f"{gender_unknown_artist_count}")
-print(Fore.BLACK + "Asian artist count: " + Fore.BLUE + f"{asian_artist_count}")
-print(Fore.BLACK + "Asian American artist count: " + Fore.BLUE +f"{asian_american_artist_count}")
-print(Fore.BLACK + "Jewish artist count: " + Fore.BLUE + f"{jewish_artist_count}")
-print(Fore.BLACK + "Latine and Hispanic artist count: " + Fore.BLUE + f"{latine_and_hispanic_artist_count}")
-print(Fore.BLACK + "LGBTQ+ artist count: " + Fore.BLUE+ f"{lgbtq_artist_count}")
-print(Fore.BLACK + "Black American artist count: " + Fore.BLUE + f"{black_american_artist_count}")
+print(Fore.BLACK + "Male Artist Count: " + Fore.BLUE + f"{male_artist_count}")
+print(Fore.BLACK + "Female Artist Count: " + Fore.BLUE + f"{female_artist_count}")
+print(Fore.BLACK + "Gender Unknown Artist Count: " + Fore.BLUE + f"{gender_unknown_artist_count}")
+print(Fore.BLACK + "Asian Artist Count: " + Fore.BLUE + f"{asian_artist_count}")
+print(Fore.BLACK + "Asian American Artist Count: " + Fore.BLUE +f"{asian_american_artist_count}")
+print(Fore.BLACK + "Jewish Artist Count: " + Fore.BLUE + f"{jewish_artist_count}")
+print(Fore.BLACK + "Latine and Hispanic Artist Count: " + Fore.BLUE + f"{latine_and_hispanic_artist_count}")
+print(Fore.BLACK + "LGBTQ+ Artist Count: " + Fore.BLUE+ f"{lgbtq_artist_count}")
+print(Fore.BLACK + "Black American Artist Count: " + Fore.BLUE + f"{black_american_artist_count}")
 
 # Pie chart displaying info for artist genders.
 gender_tag_names = ["Male",
