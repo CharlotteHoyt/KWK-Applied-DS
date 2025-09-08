@@ -5,8 +5,10 @@ from colorama import Fore
 
 colorama.init(autoreset = True)
 
+# The current total count of artwork records in the CMA's collection. 
 total_art_pieces = 68076
 
+# Counts of artworks belonging to various "artists_tags" (identities).
 male_artist_count = 0
 female_artist_count = 0
 gender_unknown_artist_count = 0
@@ -17,14 +19,18 @@ latine_and_hispanic_artist_count = 0
 lgbtq_artist_count = 0
 black_american_artist_count = 0
 
+# Read cleaned CMA CSV to a DataFrame for use.
 df = pd.read_csv('cma_collection_data_cleaned.csv')
 
+# Traverse DataFrame and tally instance of each artists_tags. 
 row = 0
 while row < 68075:
+    # Access artists_tags to save to an array.
     artist_tag_array = df.loc[row, 'artists_tags']
-    #print(f'The array in row {row} is: {artist_tag_array}')
+    # Split artists_tags array to obtain each tag.
     separated_array = artist_tag_array.split(",")
 
+    # Increase counts of any applicable categories. 
     if any("male" in item for item in separated_array):
         male_artist_count = male_artist_count + 1
     if any("female" in item for item in separated_array):
@@ -46,16 +52,7 @@ while row < 68075:
 
     row = row + 1
 
-""" print(f"Male artist count: {male_artist_count}")
-print(f"Female artist count: {female_artist_count}")
-print(f"Gender unknown artist count: {gender_unknown_artist_count}")
-print(f"Asian artist count: {asian_artist_count}")
-print(f"Asian American artist count: {asian_american_artist_count}")
-print(f"Jewish artist count: {jewish_artist_count}")
-print(f"Latine and Hispanic artist count: {latine_and_hispanic_artist_count}")
-print(f"LGBTQ+ artist count: {lgbtq_artist_count}")
-print(f"Black American artist count: {black_american_artist_count}") """
-
+# Print artist_tags totals to the terminal.
 print(Fore.BLACK + "Male artist count: " + Fore.BLUE + f"{male_artist_count}")
 print(Fore.BLACK + "Female artist count: " + Fore.BLUE + f"{female_artist_count}")
 print(Fore.BLACK + "Gender unknown artist count: " + Fore.BLUE + f"{gender_unknown_artist_count}")
@@ -66,34 +63,7 @@ print(Fore.BLACK + "Latine and Hispanic artist count: " + Fore.BLUE + f"{latine_
 print(Fore.BLACK + "LGBTQ+ artist count: " + Fore.BLUE+ f"{lgbtq_artist_count}")
 print(Fore.BLACK + "Black American artist count: " + Fore.BLUE + f"{black_american_artist_count}")
 
-# Bar chart displaying info for all artist identities.
-""" tag_names = ["Male",
-             "Female",
-             "Gender Unkown",
-             "Asian",
-             "Asian American",
-             "Jewish",
-             "Latine and Hispanic",
-             "LGBTQ+",
-             "Black American"]
-
-tag_counts = [male_artist_count,
-              female_artist_count,
-              gender_unknown_artist_count,
-              asian_artist_count,
-              asian_american_artist_count,
-              jewish_artist_count,
-              latine_and_hispanic_artist_count,
-              lgbtq_artist_count,
-              black_american_artist_count]
-
-plt.bar(tag_names, tag_counts)
-plt.xlabel("Identity")
-plt.ylabel("Artist Count")
-plt.title("Artist Identity vs. Number of Artists")
-plt.show() """
-
-# Bar chart displaying info for artist genders.
+# Pie chart displaying info for artist genders.
 gender_tag_names = ["Male",
                     "Female",
                     "Gender Unkown"]
@@ -107,16 +77,6 @@ with plt.style.context('Solarize_Light2'):
     plt.axis('equal')
     plt.title("Pieces in the Cleveland Museum of Art's Collection by Artist Gender", fontsize = 14)
     plt.show()
-
-""" with plt.style.context('Solarize_Light2'):
-    plt.bar(gender_tag_names, gender_tag_counts)
-    plt.xlabel("Gender", labelpad = 20, fontsize = 14)
-    plt.xticks(fontsize = 10)
-    plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
-    plt.yticks(fontsize = 10)
-    plt.title("Artist Gender vs. Number of Artists", fontsize = 14)
-    plt.tight_layout()
-    plt.show() """
 
 # Bar chart displaying info for artist ethnicity.
 ethnicity_tag_names = ["Asian",
@@ -143,7 +103,7 @@ with plt.style.context('Solarize_Light2'):
     plt.tight_layout()
     plt.show()
 
-# Bar chart displaying info for LGBTQ+ artists.
+# Pie chart displaying info for LGBTQ+ artists.
 lgbtq_tag_names = ["LGBTQ+ (After 1900)",
                    "Not LGBTQ+"]
 
@@ -157,16 +117,6 @@ with plt.style.context('Solarize_Light2'):
     plt.axis('equal')
     plt.title("Pieces in the Cleveland Museum of Art's Collection by LGBTQ+ Artists", fontsize = 14)
     plt.show()
-
-""" with plt.style.context('Solarize_Light2'):
-    plt.bar(lgbtq_tag_names, lgbtq_tag_counts)
-    plt.xlabel("LGBTQ+", labelpad = 20, fontsize = 14)
-    plt.xticks(fontsize = 10)
-    plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
-    plt.yticks(fontsize = 10)
-    plt.title("LQBTQ+ Artists vs. Number of Artists", fontsize = 14)
-    plt.tight_layout()
-    plt.show() """
 
 # Bar chart displaying info for Jewish artists.
 jewish_tag_names = ["Jewish",
