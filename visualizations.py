@@ -105,7 +105,7 @@ gender_tag_counts = [male_artist_count,
 with plt.style.context('Solarize_Light2'):
     plt.pie(gender_tag_counts, labels = gender_tag_names)
     plt.axis('equal')
-    plt.title("Artist Gender vs. Number of Artists", fontsize = 14)
+    plt.title("Pieces in the Cleveland Museum of Art's Collection by Artist Gender", fontsize = 14)
     plt.show()
 
 """ with plt.style.context('Solarize_Light2'):
@@ -155,7 +155,7 @@ lgbtq_tag_counts = [lgbtq_artist_count,
 with plt.style.context('Solarize_Light2'):
     plt.pie(lgbtq_tag_counts, labels = lgbtq_tag_names)
     plt.axis('equal')
-    plt.title("LGBTQ+ Artists vs. Number of Artists", fontsize = 14)
+    plt.title("Pieces in the Cleveland Museum of Art's Collection by LGBTQ+ Artists", fontsize = 14)
     plt.show()
 
 """ with plt.style.context('Solarize_Light2'):
