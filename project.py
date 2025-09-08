@@ -2,23 +2,13 @@ import requests
 import pandas as pd
 import os
 
-# Collection script for full CMA dataset.
-""" csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
-
-response = requests.get(csv_url)
-
-if response.status_code == 200:
-    with open("full_cma_collection_data.csv", "wb") as f:
-        f.write(response.content)
-    print("CSV successfully written.")
-else:
-    print(f"Failed to write CSV. Status code: {response.status_code}") """
-
-# Write full CMA dataset to CSV, convert CSV to DataFrame, modify DataFrame in place (drop columns), and use the os module to delete files.
+# Collection script to obtain complete and current CMA dataset in CSV format.
 csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
 
+# Make a request to the CSV file's URL.
 response = requests.get(csv_url)
 
+# Write CMA dataset to CSV.
 if response.status_code == 200:
     with open("full_cma_collection_data.csv", "wb") as f:
         f.write(response.content)
@@ -26,18 +16,19 @@ if response.status_code == 200:
 else:
     print(f"Failed to write CSV. Status code: {response.status_code}")
 
+# Convert CSV to a DataFrame. 
 df = pd.read_csv('full_cma_collection_data.csv')
-# print(df.head)
+
+# Write DataFrame to a CSV.
 df.to_csv('full_cma_collection_data_as_dataframe.csv')
-# Get just the artists_tags field.
-# df_modified = df.drop(['id', 'accession_number' ,'share_license_status','tombstone', 'current_location', 'title', 'title_in_original_language', 'series', 'series_in_original_language','creation_date','creation_date_earliest', 'creation_date_latest', 'culture', 'technique', 'support_materials', 'department', 'collection', 'type', 'measurements', 'state_of_the_work', 'edition_of_the_work', 'copyright', 'inscriptions', 'exhibitions', 'provenance', 'find_spot', 'related_works', 'former_accession_numbers', 'did_you_know', 'description', 'external_resources', 'citations', 'catalogue_raisonne', 'url', 'alternate_images', 'creditline', 'sketchfab_id','sketchfab_url', 'gallery_donor_text', 'creators', 'image_web', 'image_print', 'image_full', 'updated_at'], axis = 1)
-# Get the title and artists_tags fields. (Requires backspace on CSV line 13001 for data cleaning.)
+
+# Modify DataFrame by dropping all columns but the title and artists_tags fields.
 df_modified = df.drop(['id', 'accession_number' ,'share_license_status','tombstone', 'current_location', 'title_in_original_language', 'series', 'series_in_original_language','creation_date','creation_date_earliest', 'creation_date_latest', 'culture', 'technique', 'support_materials', 'department', 'collection', 'type', 'measurements', 'state_of_the_work', 'edition_of_the_work', 'copyright', 'inscriptions', 'exhibitions', 'provenance', 'find_spot', 'related_works', 'former_accession_numbers', 'did_you_know', 'description', 'external_resources', 'citations', 'catalogue_raisonne', 'url', 'alternate_images', 'creditline', 'sketchfab_id','sketchfab_url', 'gallery_donor_text', 'creators', 'image_web', 'image_print', 'image_full', 'updated_at'], axis = 1)
 
+# Write modified DataFrame to CSV, supress display of DataFrame's index.
 df_modified.to_csv('cma_collection_data_dropped_columns.csv', index="False")
-print("Modified DataFrame in place, dropped columns.")
 
-# Delete CSV files not in use.
+# Use the os module to delete helper CSV files.
 file_to_delete_1 = "full_cma_collection_data.csv"
 file_to_delete_2 = "full_cma_collection_data_as_dataframe.csv"
 
