@@ -73,7 +73,8 @@ gender_tag_counts = [male_artist_count,
                      gender_unknown_artist_count]
 
 with plt.style.context("Solarize_Light2"):
-    plt.pie(gender_tag_counts, labels = gender_tag_names, autopct = "%1.1f%%")
+    plt.pie(gender_tag_counts, labels = gender_tag_names, autopct = "%1.1f%%", wedgeprops = {"linewidth": .75, "edgecolor": "#EEE8D5"})
+    plt.legend(title = "Gender", loc = "lower left")
     plt.axis("equal")
     plt.title("Pieces in the Cleveland Museum of Art's Collection by Artist Gender", fontsize = 14)
     plt.show()
@@ -113,7 +114,8 @@ lgbtq_tag_counts = [lgbtq_artist_count,
                     not_lgbtq_count]
 
 with plt.style.context("Solarize_Light2"):
-    plt.pie(lgbtq_tag_counts, labels = lgbtq_tag_names, autopct = "%1.1f%%")
+    plt.pie(lgbtq_tag_counts, labels = lgbtq_tag_names, autopct = "%1.1f%%", wedgeprops = {"linewidth": .75, "edgecolor": "#EEE8D5"})
+    plt.legend(loc = "lower left")
     plt.axis("equal")
     plt.title("Pieces in the Cleveland Museum of Art's Collection by LGBTQ+ Artists", fontsize = 14)
     plt.show()
