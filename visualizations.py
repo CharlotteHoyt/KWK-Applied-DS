@@ -40,7 +40,7 @@ while row < 68075:
     if any("Asian (from 1900 to present)" in item for item in separated_array):
         asian_artist_count += 1
     if any("Asian American" in item for item in separated_array):
-        asian_artist_count += 1
+        asian_american_artist_count += 1
     if any("Jewish" in item for item in separated_array):
         jewish_artist_count += 1
     if any("Latine and Hispanic Artists" in item for item in separated_array):
@@ -94,8 +94,13 @@ ethnicity_tag_counts = [asian_artist_count,
                         black_american_artist_count,
                         other_ethnicity_count]
 
+def make_ethnicity_bar_chart_labels(ethnicity_tag_names, ethnicity_tag_counts):
+    for i in range(len(ethnicity_tag_names)):
+        plt.text(i, ethnicity_tag_counts[i] + 200, ethnicity_tag_counts[i], ha = "center")
+
 with plt.style.context("Solarize_Light2"):
     plt.bar(ethnicity_tag_names, ethnicity_tag_counts)
+    make_ethnicity_bar_chart_labels(ethnicity_tag_names, ethnicity_tag_counts)
     plt.xlabel("Ethnicity", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
     plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
@@ -129,8 +134,13 @@ not_jewish_count = total_art_pieces - jewish_artist_count
 jewish_tag_counts = [jewish_artist_count,
                     not_jewish_count]
 
+def make_jewish_bar_chart_labels(jewish_tag_names, jewish_tag_counts):
+    for i in range(len(jewish_tag_names)):
+        plt.text(i, jewish_tag_counts[i] + 200, jewish_tag_counts[i], ha = "center")
+
 with plt.style.context("Solarize_Light2"):
     plt.bar(jewish_tag_names, jewish_tag_counts)
+    make_jewish_bar_chart_labels(jewish_tag_names, jewish_tag_counts)
     plt.xlabel("Jewish", labelpad = 20, fontsize = 14)
     plt.xticks(fontsize = 10)
     plt.ylabel("Artist Count", labelpad = 20, fontsize = 14)
