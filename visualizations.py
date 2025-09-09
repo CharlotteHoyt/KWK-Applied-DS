@@ -22,7 +22,7 @@ black_american_artist_count = 0
 # Read cleaned CMA CSV to a DataFrame for use.
 df = pd.read_csv("cma_collection_data_cleaned.csv")
 
-# Traverse DataFrame and tally instance of each artists_tags. 
+# Traverse DataFrame and tally instances of each artists_tags. 
 row = 0
 while row < 68075:
     # Access artists_tags to save to an array.
@@ -78,7 +78,7 @@ with plt.style.context("Solarize_Light2"):
     plt.title("Pieces in the Cleveland Museum of Art's Collection by Artist Gender", fontsize = 14)
     plt.show()
 
-# Bar chart displaying info for artist ethnicity.
+# Bar chart displaying info for artist ethnicities.
 ethnicity_tag_names = ["Asian",
                        "Asian American",
                        "Latine and Hispanic",
