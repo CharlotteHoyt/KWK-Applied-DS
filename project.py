@@ -3,6 +3,7 @@ import pandas as pd
 import os
 
 # Collection script to obtain complete and current CMA dataset in CSV format.
+# (Obtaining the dataset from the museum's GitHub repository was recommended in the API documentation.)
 csv_url = "https://media.githubusercontent.com/media/ClevelandMuseumArt/openaccess/refs/heads/master/data.csv"
 
 # Make a request to the CSV file's URL.
